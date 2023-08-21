@@ -4,7 +4,7 @@ import { Router } from 'next/router'
 import { useRouter } from 'next/navigation'
 
 
-const url = process.env.NEXT_PUBLIC_TMDB_URL
+const url = 'https://api.themoviedb.org'
 
 export const movieDB: IMovieDB = {
     async generateMovieList() {
