@@ -24,7 +24,7 @@ export function FieldMovieSearch() {
 
     async function handleSearchInputClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         const inputValue = e.currentTarget.name
-        const res = await HttpClient.post('http://localhost:3000/api/kick-movie', { movie: inputValue })
+        const res = await HttpClient.post(process.env.NEXT_PUBLIC_URL_APP + '/api/kick-movie', { movie: inputValue })
         if (res.status === 418) {
             const currentErrorKick = [...errorKick, { id: inputValue }]
             const uniqueArraySet = uniqueArray<{ id: string }[]>(currentErrorKick, 'id')
