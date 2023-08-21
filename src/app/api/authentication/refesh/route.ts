@@ -2,6 +2,7 @@ import { file } from "@/services/writeFile/writeFile";
 import { NextRequest, NextResponse } from "next/server";
 import { verify, sign } from 'jsonwebtoken'
 import { cookiesBack } from "@/infra/cookies/back";
+import path from "path";
 
 const NEXT_PUBLIC_SECRET_KEY_JWT = process.env.NEXT_PUBLIC_SECRET_KEY_JWT as string
 

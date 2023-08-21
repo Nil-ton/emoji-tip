@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { revalidateTag } from 'next/cache'
 import { file } from '@/services/writeFile/writeFile'
+import path from 'path'
 
 const MY_SECRET_TOKEN = '307008'
 
