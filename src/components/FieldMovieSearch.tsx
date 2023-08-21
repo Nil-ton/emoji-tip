@@ -78,7 +78,7 @@ export function FieldMovieSearch() {
 
             <span
                 data-hidden={kickMovie || Boolean(errorKick?.length === 0)}
-                className='data-[hidden=true]:hidden top-14 flex flex-col gap-1 z-0 absolute min-w-[230px]'
+                className='data-[hidden=true]:hidden top-14 flex flex-col gap-1 z-0 absolute min-w-[230px] w-230px'
             >
                 {kickMovie && <span className='top-14 flex flex-col gap-1'>
                     <span className='bg-emerald-900 text-slate-200 border-2 px-4 py-3 border-blue-900 rounded-md'>
