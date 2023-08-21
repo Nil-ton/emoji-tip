@@ -19,7 +19,7 @@ export function FormLogin() {
 
   return <main className='flex flex-col items-center mt-14'>
     <div className='relative'>
-      <div className='flex items-center justify-center gap-2'>
+      <div className='flex flex-col sm:flex-row items-center justify-center gap-2'>
         <div className='flex flex-col'>
           <label htmlFor="username">Nome de usuário</label>
           <input
