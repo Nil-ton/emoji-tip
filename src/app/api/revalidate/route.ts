@@ -8,7 +8,6 @@ export async function POST(request: NextRequest) {
     const secret = request.nextUrl.searchParams.get('secret')
     const tag = request.nextUrl.searchParams.get('tag')
 
-    console.log(secret)
     if (secret !== MY_SECRET_TOKEN) {
         return NextResponse.json({ message: 'Invalid secret' }, { status: 401 })
     }

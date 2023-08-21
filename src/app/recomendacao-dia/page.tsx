@@ -51,8 +51,6 @@ function Authenticated() {
 
     const trailer = new URL(`${YOUTUBE_URL}${film?.videos?.results?.[0]?.key}?mute=1&autoplay=1`).href
 
-    console.log(film)
-
     return film && <div className="relative">
         <div style={imageBackground}></div>
         <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-t via-black/100 from-black to-transparent">

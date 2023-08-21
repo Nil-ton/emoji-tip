@@ -1,7 +1,5 @@
 import { useSession } from "@/hooks/useSession";
 import { useNavigate } from "@/infra/router/router";
-import { authService } from "@/services/auth/authService";
-import { tokensService } from "@/services/tokensService/tokensService";
 import React from "react";
 
 export function WithAuthorization<P extends object>(Component: React.ComponentType<P>) {

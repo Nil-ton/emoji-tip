@@ -1,8 +1,7 @@
 import { HttpClient } from "@/infra/HttpClient/HttpClient"
 
-export async function Emojis() {
-    const tip = await HttpClient.get(`${process.env.URL_APP}/api/emoji-tip`, { next: { tags: ['emoji'] } })
-
+export async function EmojiTip() {
+    const tip = await HttpClient.get(`${process.env.NEXT_PUBLIC_URL_APP}/api/emoji-tip`, { next: { tags: ['emoji'] } })
     const emojis = tip?.choices?.[0]?.message?.content
 
     return <div className='flex justify-center z-10'>
