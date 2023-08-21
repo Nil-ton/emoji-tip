@@ -2,7 +2,7 @@
 import { HttpClient } from "@/infra/HttpClient/HttpClient"
 import React from "react"
 
-export function Emojis() {
+export function EmojiTip() {
     const [emojis, setEmojis] = React.useState<string | null>(null)
 
     React.useEffect(() => {

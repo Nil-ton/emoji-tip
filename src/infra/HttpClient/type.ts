@@ -4,6 +4,6 @@ interface Options {
         'Content-Type'?: 'application/json',
         "Authorization"?: string
     },
-    cache?: 'no-cache',
+    cache?: 'no-cache' | 'no-store',
     refesh?: boolean
 }

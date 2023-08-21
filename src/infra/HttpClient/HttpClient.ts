@@ -1,5 +1,3 @@
-import { tomorrowAt3pm } from "@/util/tomorrowAt3pm"
-import { cookiesFront } from "../cookies/front"
 import { tokensService } from "@/services/tokensService/tokensService"
 
 const URL = process.env.NEXT_PUBLIC_URL_APP
@@ -44,7 +42,7 @@ export const HttpClient = {
         if (!options.refesh) return res;
 
         if (res.status === 401 && options.refesh) {
-            const refesh = await HttpClient.get(URL + '/api/authentication/refesh')
+            const refesh = await HttpClient.get(`${URL}/api/authentication/refesh`)
             tokensService.save(refesh)
             const accessToken = refesh.accessToken
             const retryResponse = await HttpClient.get(url, {

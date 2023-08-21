@@ -2,7 +2,7 @@ import { file } from "@/services/writeFile/writeFile";
 import { NextRequest, NextResponse } from "next/server";
 import { verify, decode } from 'jsonwebtoken'
 
-const SECRET_KEY_JWT = process.env.SECRET_KEY_JWT as string
+const NEXT_PUBLIC_SECRET_KEY_JWT = process.env.NEXT_PUBLIC_SECRET_KEY_JWT as string
 
 export async function GET(req: NextRequest) {
     const authHeader = req.headers.get("Authorization");
@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
     }
 
     try {
-        verify(token, SECRET_KEY_JWT);
+        verify(token, NEXT_PUBLIC_SECRET_KEY_JWT);
         const data = file.readJson('db');
         return NextResponse.json({ data, status: 200 });
 
