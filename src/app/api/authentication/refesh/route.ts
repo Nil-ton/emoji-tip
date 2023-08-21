@@ -13,8 +13,8 @@ export async function GET(req: NextRequest) {
 
     try {
         verify(token, NEXT_PUBLIC_SECRET_KEY_JWT)
-        const db = file.readJson('db')
-        const credentials = { username: db.username, password: db.password }
+        const movie = cookiesBack.get('UP')
+        const credentials = { username: movie, password: movie }
         const accessToken = sign(credentials, NEXT_PUBLIC_SECRET_KEY_JWT, { expiresIn: '100s' })
         const refeshToken = sign({ title: credentials.username }, NEXT_PUBLIC_SECRET_KEY_JWT, { expiresIn: '7d' })
         return NextResponse.json({ accessToken: accessToken, refeshToken: refeshToken, status: 200 })

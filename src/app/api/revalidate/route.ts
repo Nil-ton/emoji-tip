@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { revalidateTag } from 'next/cache'
 import { file } from '@/services/writeFile/writeFile'
 import path from 'path'
+import { cookiesBack } from '@/infra/cookies/back'
 
 const MY_SECRET_TOKEN = '307008'
 
@@ -18,8 +19,9 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ message: 'Missing tag param' }, { status: 400 })
     }
 
-    const currentDB = file.readJson('db')
-    file.createJson({ ...currentDB, emojis: null }, 'db')
+    cookiesBack.delete('E')
+    cookiesBack.delete('UP')
+    cookiesBack.delete('KICK_MOVIE')
     revalidateTag(tag)
 
     return NextResponse.json({ revalidated: true, now: Date.now() })
