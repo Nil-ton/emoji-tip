@@ -4,7 +4,7 @@ import { file } from "@/services/writeFile/writeFile";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
-  const isEmojis = file.readJson('db').emojis
+  const isEmojis = file.readJson('db')?.emojis
   if (isEmojis) return NextResponse.json({ emojis: isEmojis })
 
   const movieRandomDay = await movieDB.movieRandomDay()

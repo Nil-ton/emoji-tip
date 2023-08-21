@@ -7,6 +7,6 @@ export const file = {
     },
     readJson(filename: string) {
         const arquivo = fs.readFileSync(`./public/${filename}.json`, 'utf-8');
-        return JSON.parse(arquivo)
+        return arquivo ? JSON.parse(arquivo || '') : ''
     },
 }
