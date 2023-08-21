@@ -30,16 +30,16 @@ export const movieDB: IMovieDB = {
 
     async movieRandomDay() {
         const randomPage = generateRandomNumber(0, 10)
-        const movieList = await this?.generateMovieList()
+        const movieList = await this?.generateMovieList?.()
         const getMovieRandom = movieList?.results?.[randomPage]
-        const moreDetails = await this?.moreDetails?.(getMovieRandom.id)
+        const moreDetails = await this?.moreDetails?.(getMovieRandom?.id)
         const DTOMovie = moreDetails
 
         return DTOMovie as unknown as MovieRandomDayResponse
     },
     async findMovie(movieName: string) {
-        const movieSearch = await this.searchMovie(movieName)
-        const moreDetails = await this.moreDetails(movieSearch.results[0].id)
+        const movieSearch = await this?.searchMovie?.(movieName)
+        const moreDetails = await this?.moreDetails?.(movieSearch.results[0]?.id)
         const DTOMovie = moreDetails
 
         return DTOMovie as unknown as MovieRandomDayResponse
