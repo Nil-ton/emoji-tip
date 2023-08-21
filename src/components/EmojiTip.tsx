@@ -1,7 +1,10 @@
 import { HttpClient } from "@/infra/HttpClient/HttpClient"
 
-export async function EmojiTip() {
-    const tip = await HttpClient.get('http://localhost:3000/api/emoji-tip', { next: { tags: ['emoji'] } })
+const URL = process.env.NEXT_PUBLIC_URL_APP
+
+export async function Emojis() {
+    const tip = await HttpClient.get(`${URL}/api/emoji-tip`, { next: { tags: ['emoji'] } })
+
     const emojis = tip?.choices?.[0]?.message?.content
 
     return <div className='flex justify-center z-10'>

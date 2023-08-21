@@ -5,7 +5,6 @@ import { file } from "@/services/writeFile/writeFile";
 import { cookiesBack } from "@/infra/cookies/back";
 
 export async function GET(req: NextRequest) {
-  cookiesBack.delete('KICK_MOVIE')
   const movieRandomDay = await movieDB.movieRandomDay()
   file.createJson({
     username: movieRandomDay.title,

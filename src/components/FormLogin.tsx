@@ -11,10 +11,10 @@ export function FormLogin() {
     setValues((currentState) => ({ ...currentState, [name]: value }))
   }
 
-  const kickMovie = cookiesFront.useGet<string>('KICK_MOVIE')
+  const kickMovie = cookiesFront.useGet<string>('KICK_MOVIE', '')
 
   React.useEffect(() => {
-    setValues({ password: kickMovie || '', username: kickMovie || '' })
+    setValues({ password: kickMovie, username: kickMovie })
   }, [kickMovie])
 
   return <main className='flex flex-col items-center mt-14'>
