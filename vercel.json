@@ -1,8 +1,0 @@
-{
-    "crons": [
-      {
-        "path": "/api/emoji-tip",
-        "schedule": "0 18 * * *"
-      }
-    ]
-  }
