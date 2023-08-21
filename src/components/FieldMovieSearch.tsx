@@ -61,7 +61,7 @@ export function FieldMovieSearch() {
                     type="text"
                     onBlur={handleBlur}
                     placeholder={'Digite o nome do filme...'}
-                    className='bg-slate-900 text-slate-200 border-2 px-4 py-3 border-blue-900 rounded-md outline-none focus:ring-2 focus:ring-blue-900'
+                    className={`${errorKick.length === 0 && "mb-20"} bg-slate-900 text-slate-200 border-2 px-4 py-3 border-blue-900 rounded-md outline-none focus:ring-2 focus:ring-blue-900`}
                 />
                 <span className='z-10 flex flex-col items-start bg-slate-900 w-full max-h-44 overflow-y-auto rounded-md absolute top-14 data-[autocomplete=false]:hidden'>
                     {AutocompleteResults?.map((current) => (
