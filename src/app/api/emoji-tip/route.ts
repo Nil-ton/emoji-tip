@@ -7,13 +7,13 @@ import { cookiesBack } from "@/infra/cookies/back";
 export async function GET(req: NextRequest) {
   const movieRandomDay = await movieDB.movieRandomDay()
   file.createJson({
-    username: movieRandomDay.title,
-    password: movieRandomDay.title,
+    username: movieRandomDay?.title,
+    password: movieRandomDay?.title,
     count: 0,
     ...movieRandomDay,
   }, 'db')
 
-  const prompt = `Nome em portugues:${movieRandomDay.title}, nome original: ${movieRandomDay.original_title}, visão geral: ${movieRandomDay.overview}
+  const prompt = `Nome em portugues:${movieRandomDay?.title}, nome original: ${movieRandomDay?.original_title}, visão geral: ${movieRandomDay?.overview}
   Gere 4 emojis que tenha relação com o nome do filme acima.
   Envie apenas os emojis
 `.trim()
