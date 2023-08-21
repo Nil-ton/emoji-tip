@@ -1,9 +1,7 @@
 import { HttpClient } from "@/infra/HttpClient/HttpClient"
 
-
-const URL = process.env.URL_APP
 export async function Emojis() {
-    const tip = await HttpClient.get(`${URL}/api/emoji-tip`, { next: { tags: ['emoji'] } })
+    const tip = await HttpClient.get(`${process.env.URL_APP}/api/emojitip`, { next: { tags: ['emoji'] } })
 
     const emojis = tip?.choices?.[0]?.message?.content
 

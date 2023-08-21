@@ -8,7 +8,7 @@ export default async function Home() {
     <div className='min-h-screen relative '>
       <div className='flex flex-col gap-5'>
         <FormLogin />
-        {/* <Emojis /> */}
+        <Emojis />
         <Count />
         <FieldMovieSearch />
       </div>
