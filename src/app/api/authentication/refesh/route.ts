@@ -2,6 +2,7 @@ import { file } from "@/services/writeFile/writeFile";
 import { NextRequest, NextResponse } from "next/server";
 import { verify, sign } from 'jsonwebtoken'
 import { cookiesBack } from "@/infra/cookies/back";
+import path from "path";
 
 const NEXT_PUBLIC_SECRET_KEY_JWT = process.env.NEXT_PUBLIC_SECRET_KEY_JWT as string
 
@@ -12,7 +13,7 @@ export async function GET(req: NextRequest) {
 
     try {
         verify(token, NEXT_PUBLIC_SECRET_KEY_JWT)
-        const db = file.readJson('db')
+        const db = file.readJson(path.resolve(__dirname, '../../../../public/db.json'))
         const credentials = { username: db.username, password: db.password }
         const accessToken = sign(credentials, NEXT_PUBLIC_SECRET_KEY_JWT, { expiresIn: '100s' })
         const refeshToken = sign({ title: credentials.username }, NEXT_PUBLIC_SECRET_KEY_JWT, { expiresIn: '7d' })

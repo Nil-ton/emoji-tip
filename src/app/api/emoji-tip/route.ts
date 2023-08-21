@@ -2,9 +2,11 @@ import { chatIA } from "@/services/chatIA/chatIA";
 import { movieDB } from "@/services/movieDB/movieDB";
 import { file } from "@/services/writeFile/writeFile";
 import { NextRequest, NextResponse } from "next/server";
+import path from 'path';
 
 export async function GET(req: NextRequest) {
-  const isEmojis = file.readJson('db')?.emojis
+
+  const isEmojis = file.readJson(path.resolve(__dirname, '../../../public/db.json/emiji'))?.emojis
   if (isEmojis) return NextResponse.json({ emojis: isEmojis })
 
   const movieRandomDay = await movieDB.movieRandomDay()
@@ -16,7 +18,7 @@ export async function GET(req: NextRequest) {
     count: 0,
     emojis: messageIA?.choices?.[0]?.message?.content,
     ...movieRandomDay,
-  }, 'db')
+  }, path.resolve(__dirname, '../../../public/db.json'))
 
   console.log(messageIA)
   return NextResponse.json({ emojis: messageIA?.choices?.[0]?.message?.content })

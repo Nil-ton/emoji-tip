@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { revalidateTag } from 'next/cache'
 import { file } from '@/services/writeFile/writeFile'
+import path from 'path'
 
 const MY_SECRET_TOKEN = '307008'
 
@@ -17,8 +18,8 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ message: 'Missing tag param' }, { status: 400 })
     }
 
-    const currentDB = file.readJson('db')
-    file.createJson({ ...currentDB, emojis: null }, 'db')
+    const currentDB = file.readJson(path.resolve(__dirname, '../../../public/db.json'))
+    file.createJson({ ...currentDB, emojis: null }, path.resolve(__dirname, '../../../public/db.json'))
     revalidateTag(tag)
 
     return NextResponse.json({ revalidated: true, now: Date.now() })
