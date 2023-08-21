@@ -46,7 +46,7 @@ export function FieldMovieSearch() {
         router.push(`/recomendacao-dia`)
     }
 
-    return <div className='flex justify-center'>
+    return <div className='flex justify-center mb-10'>
         <span className='flex justify-center items-center gap-5 relative'>
             {kickMovie && <button
                 onClick={controller}
@@ -78,7 +78,7 @@ export function FieldMovieSearch() {
 
             <span
                 data-hidden={kickMovie || Boolean(errorKick?.length === 0)}
-                className='data-[hidden=true]:hidden top-14 flex flex-col gap-1 z-0 absolute min-w-[230px] w-230px'
+                className='data-[hidden=true]:hidden top-14 flex flex-col gap-1 z-0 absolute w-full'
             >
                 {kickMovie && <span className='top-14 flex flex-col gap-1'>
                     <span className='bg-emerald-900 text-slate-200 border-2 px-4 py-3 border-blue-900 rounded-md'>
