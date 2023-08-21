@@ -1,9 +1,16 @@
+'use client'
 import { HttpClient } from "@/infra/HttpClient/HttpClient"
+import React from "react"
 
-export async function Emojis() {
-    const tip = await HttpClient.get(`${process.env.URL_APP}/api/emoji-tip`, { next: { tags: ['emoji'] } })
+export function Emojis() {
+    const [emojis, setEmojis] = React.useState<string | null>(null)
 
-    const emojis = tip?.choices?.[0]?.message?.content
+    React.useEffect(() => {
+        HttpClient.get(`${process.env.NEXT_PUBLIC_URL_APP}/api/emoji-tip`, { next: { tags: ['emoji'] } })
+            .then((res) => {
+                setEmojis(res.emojis)
+            })
+    })
 
     return <div className='flex justify-center z-10'>
         <span className='flex flex-col justify-center items-center gap-4 rounded-lg border border-yellow-600 p-10 bg-slate-900'>

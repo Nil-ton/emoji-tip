@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { revalidateTag } from 'next/cache'
+import { file } from '@/services/writeFile/writeFile'
 
 const MY_SECRET_TOKEN = '307008'
 
@@ -8,7 +9,6 @@ export async function POST(request: NextRequest) {
     const secret = request.nextUrl.searchParams.get('secret')
     const tag = request.nextUrl.searchParams.get('tag')
 
-    console.log(secret)
     if (secret !== MY_SECRET_TOKEN) {
         return NextResponse.json({ message: 'Invalid secret' }, { status: 401 })
     }
@@ -17,6 +17,8 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ message: 'Missing tag param' }, { status: 400 })
     }
 
+    const currentDB = file.readJson('db')
+    file.createJson({ ...currentDB, emojis: null }, 'db')
     revalidateTag(tag)
 
     return NextResponse.json({ revalidated: true, now: Date.now() })
