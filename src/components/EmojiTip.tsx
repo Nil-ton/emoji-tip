@@ -6,10 +6,8 @@ export function EmojiTip() {
     const [emojis, setEmojis] = React.useState<string | null>(null)
 
     React.useEffect(() => {
-        HttpClient.get(`${process.env.NEXT_PUBLIC_URL_APP}/api/emoji-tip`, { next: { tags: ['emoji'] } })
-            .then((res) => {
-                setEmojis(res.emojis)
-            })
+        HttpClient.get(`${process.env.NEXT_PUBLIC_URL_APP}/api/emoji-tip`)
+            .then((res) => setEmojis(res.emojis))
     })
 
     return <div className='flex justify-center z-10'>

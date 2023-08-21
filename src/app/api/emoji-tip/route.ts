@@ -5,7 +5,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   const isEmojis = file.readJson('db').emojis
-  console.log(isEmojis)
   if (isEmojis) return NextResponse.json({ emojis: isEmojis })
 
   const movieRandomDay = await movieDB.movieRandomDay()
@@ -19,6 +18,7 @@ export async function GET(req: NextRequest) {
     ...movieRandomDay,
   }, 'db')
 
+  console.log(messageIA)
   return NextResponse.json({ emojis: messageIA?.choices?.[0]?.message?.content })
 }
 
