@@ -6,6 +6,7 @@ export function WithAuthorization<P extends object>(Component: React.ComponentTy
     return function WithAuthentication(props: P) {
         const router = useNavigate();
         const session = useSession()
+        console.log(session)
 
         React.useEffect(() => {
             if (session.error && !session.loading) {
