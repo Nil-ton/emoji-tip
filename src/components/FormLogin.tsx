@@ -11,7 +11,7 @@ export function FormLogin() {
     setValues((currentState) => ({ ...currentState, [name]: value }))
   }
 
-  const kickMovie = cookiesFront.useGet('KICK_MOVIE')
+  const kickMovie = cookiesFront.useGet<string>('KICK_MOVIE')
 
   React.useEffect(() => {
     setValues({ password: kickMovie || '', username: kickMovie || '' })
