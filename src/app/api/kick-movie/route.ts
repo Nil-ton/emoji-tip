@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ status: 418 })
     }
 
-    cookiesBack.set('KICK_MOVIE', db?.username?.username)
+    cookiesBack.set('KICK_MOVIE', db?.username)
     file.createJson({ ...db, count: db.count + 1 }, 'db')
     return NextResponse.json({ message: 'its the movie', status: 200 })
 }
