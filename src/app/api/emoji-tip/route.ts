@@ -5,8 +5,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   const isEmojis = file.readJson('db').emojis
+  console.log(isEmojis)
   if (isEmojis) return NextResponse.json({ emojis: isEmojis })
-  
+
   const movieRandomDay = await movieDB.movieRandomDay()
   const prompt = `Nome em portugues:${movieRandomDay.title}, nome original: ${movieRandomDay.original_title}, visão geral: ${movieRandomDay.overview} Gere 4 emojis que tenha relação com o nome do filme acima.Envie apenas os emojis`.trim()
   const messageIA = await chatIA(prompt)
