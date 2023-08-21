@@ -1,13 +1,10 @@
 import { cookiesBack } from "@/infra/cookies/back";
 import { file } from "@/services/writeFile/writeFile";
 import { NextRequest, NextResponse } from "next/server";
-import path from "path";
 export async function POST(req: NextRequest) {
-
-
     const body = await req.json()
-
     const db = file.readJson('db')
+    console.log(db)
 
     if (body.movie.toUpperCase() !== db?.username?.toUpperCase()) {
         cookiesBack.delete('KICK_MOVIE')
