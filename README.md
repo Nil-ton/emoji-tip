@@ -1,5 +1,6 @@
-# Visão geral
-Desafie seu conhecimento cinematográfico decifrando filmes a partir de emojis! Teste suas habilidades interpretativas enquanto decifra enigmáticos emojis e adivinha o título do filme do dia. Divirta-se e desafie seus amigos nesse jogo emocionante de pistas visuais e cultura cinematográfica. Venha jogar EmojiTip e prove que você é o mestre dos emojis no mundo do cinema!
+# Overview
+
+Desafie your cinematographic knowledge by deciphering movies through emojis! Test your interpretative skills while decoding enigmatic emojis and guessing the film's title of the day. Have fun and challenge your friends in this exciting game of visual clues and film culture. Come play EmojiTip and prove that você é the master of emojis in the cinema world!
 
 **WebSite**: https://emojitip.com.br/
 
